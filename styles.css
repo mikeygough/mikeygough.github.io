@@ -1,3 +1,56 @@
-h1 {
-  color:  #6a3d9a;
+.flex-container-header {
+  display: flex;
+  height: 75px;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-container-header > div {
+  background-color:  #f1f1f1;
+  width: 425px;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 24px;
+  justify-content: center;
+  align-content: center;
+  color: #756bb1;
+}
+
+.flex-container-body {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex-container-body > p {
+  margin: 10px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 18px;
+  justify-content: center;
+  align-content: center;
+  color: #000000;
+}
+
+.flex-container {
+  width: 450px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: left;
+  align-content: left;
+}
+
+#new {
+  font-weight: bold;
+  color: #3f007d;
+}
+
+#ikimasho {
+  text-align: right;
+  justify-content: right;
+  align-content: right;
 }
