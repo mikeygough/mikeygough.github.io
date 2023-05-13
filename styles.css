@@ -54,3 +54,20 @@
   justify-content: right;
   align-content: right;
 }
+
+a {
+  color: #3f007d;
+}
+
+.flex-container-footer > div {
+  background-color:  #f1f1f1;
+  width: 200px;
+  margin: 10px;
+  margin-top: 500px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  justify-content: center;
+  align-content: center;
+  color: #756bb1;
+}
