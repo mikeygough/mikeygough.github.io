@@ -34,17 +34,17 @@
             y: 250 + Math.sin(d * 0.5 + t) * 220,
             }));
 
-            const circles = svg.selectAll('circle').data(data);
-            circles.enter().append('circle').attr('r', 20);
-            circles
+            const circles = svg
+                .selectAll('circle')
+                .data(data)
+                .join('circle')
+                .attr('r', 20)
                 .attr('cx', (d) => d.x)
                 .attr('cy', (d) => d.y);
 
             t = t + 0.1;
         }, 100);
-    
-
-        
+           
     </script>
 
 </body>
