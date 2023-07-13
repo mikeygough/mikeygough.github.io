@@ -12,6 +12,31 @@
 </head>
 
 <body>
+    <script type="module">
+        import {
+            select,
+            range
+        } from 'https://cdn.skypack.dev/d3@7.0.0';
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = select('body')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+        const data = range(15);
+
+        svg.selectAll('circle')
+            .data(data)
+            .enter()
+            .append('circle')
+            .attr('r', 100)
+            .attr('cx', (d) => d * 100);
+
+        
+    </script>
 
 </body>
 
