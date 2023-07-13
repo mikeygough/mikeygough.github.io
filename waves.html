@@ -29,21 +29,23 @@
         let t = 0;
 
         setInterval(() => {
-            const data = range(15).map(d => ({
+            const data = range(25).map(d => ({
             x: d * 60 + 50,
             y: 250 + Math.sin(d * 0.5 + t) * 220,
+            r: 20 + Math.sin(d * 0.5 + t * 2) * 10
             }));
 
+            // .join is a shorthand for the entire general update pattern (initialize, then update)
             const circles = svg
                 .selectAll('circle')
                 .data(data)
                 .join('circle')
-                .attr('r', 20)
+                .attr('r', (d) => d.r)
                 .attr('cx', (d) => d.x)
                 .attr('cy', (d) => d.y);
 
-            t = t + 0.1;
-        }, 100);
+            t = t + 0.01;
+        }, 1000 / 60);
            
     </script>
 
