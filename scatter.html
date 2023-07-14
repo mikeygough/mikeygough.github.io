@@ -58,6 +58,21 @@
             const y = scaleLinear()
                 .domain(extent(data, yValue))
                 .range([height, 0]);
+
+            const marks = data.map(d => ({
+                x: x(xValue(d)),
+                y: y(yValue(d))
+            }));
+
+            console.log(marks);
+
+            svg
+                .selectAll('circle')
+                .data(marks)
+                .join('circle')
+                .attr('cx', (d) => d.x)
+                .attr('cy', (d) => d.y)
+                .attr('r', 5);
             
             // console.log(x.domain());
             // console.log(x.range());
@@ -66,11 +81,7 @@
 
             
             
-            // svg
-            //     .selectAll('circle')
-            //     .data(data)
-            //     .join('circle')
-            //     .attr('cx', )
+            
         };
 
         main();
