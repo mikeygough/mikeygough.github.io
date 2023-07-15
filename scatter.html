@@ -24,10 +24,6 @@
                         'iris.csv', // File name
                         ].join('');
         
-        // set x value, y value
-        const xValue = (d) => d.petal_length;
-        const yValue = (d) => d.sepal_length;
-
         // parse strings into numbers
         const parseRow = (d) => {
             d.sepal_length = +d.sepal_length;
@@ -35,6 +31,18 @@
             d.petal_length = +d.petal_length;
             d.petal_width = +d.petal_width;
             return d;
+        };
+        
+        // set x value, y value
+        const xValue = (d) => d.petal_length;
+        const yValue = (d) => d.sepal_length;
+
+        // set margin
+        const margin = {
+            top: 20, 
+            right: 20, 
+            bottom: 20,
+            left: 20,
         };
 
         // set svg attributes for size
@@ -53,18 +61,18 @@
             // scaleLinear has a domain and a range. domain is the dataspace, range is the screen space.
             const x = scaleLinear()
                 .domain(extent(data, xValue)) // ANOTHER WAY -> .domain([d3.min(data, xValue), d3.max(data, xValue)]); // set the domain (minimum, maximum)
-                .range([0, width]);
+                .range([margin.left, width - margin.right]);
             
             const y = scaleLinear()
                 .domain(extent(data, yValue))
-                .range([height, 0]);
+                .range([height - margin.bottom, margin.top]);
 
             const marks = data.map(d => ({
                 x: x(xValue(d)),
                 y: y(yValue(d))
             }));
 
-            console.log(marks);
+            
 
             svg
                 .selectAll('circle')
@@ -73,7 +81,8 @@
                 .attr('cx', (d) => d.x)
                 .attr('cy', (d) => d.y)
                 .attr('r', 5);
-            
+                
+            // console.log(marks);
             // console.log(x.domain());
             // console.log(x.range());
             // console.log(y.domain());
