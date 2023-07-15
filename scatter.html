@@ -91,7 +91,8 @@
 
             const marks = data.map(d => ({
                 x: x(xValue(d)),
-                y: y(yValue(d))
+                y: y(yValue(d)),
+                title: `( ${xValue(d)}, ${yValue(d)} ) `,
             }));
 
             svg // data circles
@@ -100,7 +101,9 @@
                 .join('circle')
                 .attr('cx', (d) => d.x)
                 .attr('cy', (d) => d.y)
-                .attr('r', radius);
+                .attr('r', radius)
+                .append('title')
+                .text((d) => d.title);
 
             svg // y axis
                 .append('g')
