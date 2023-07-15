@@ -8,6 +8,11 @@
             margin: 0;
             overflow: hidden;
         }
+        /* style tick text */
+        /* the axis has a class called tick, with children text and line */
+        .tick text {
+            font-size: 24px;
+        }
     </style>
     <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
 </head>
@@ -48,7 +53,7 @@
         const margin = {
             top: 20, 
             right: 20, 
-            bottom: 20,
+            bottom: 50,
             left: 50,
         };
 
@@ -69,6 +74,11 @@
             const x = scaleLinear()
                 .domain(extent(data, xValue)) // ANOTHER WAY -> .domain([d3.min(data, xValue), d3.max(data, xValue)]); // set the domain (minimum, maximum)
                 .range([margin.left, width - margin.right]);
+
+            // start x axis from 0 to max
+            // const x = scaleLinear()
+            //     .domain([0, d3.max(data, xValue)])
+            //     .range([margin.left, width - margin.right]);
             
             const y = scaleLinear()
                 .domain(extent(data, yValue))
@@ -79,9 +89,7 @@
                 y: y(yValue(d))
             }));
 
-            
-
-            svg
+            svg // data circles
                 .selectAll('circle')
                 .data(marks)
                 .join('circle')
@@ -89,12 +97,12 @@
                 .attr('cy', (d) => d.y)
                 .attr('r', 5);
 
-            svg
+            svg // y axis
                 .append('g')
                 .attr('transform', `translate(${margin.left}, 0)`)
                 .call(axisLeft(y));
 
-            svg
+            svg // x axis
                 .append('g')
                 .attr('transform', `translate(0, ${height - margin.bottom})`)
                 .call(axisBottom(x));
