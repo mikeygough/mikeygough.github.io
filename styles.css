@@ -1,73 +1,41 @@
-.flex-container-header {
-  display: flex;
-  height: 75px;
-  justify-content: center;
-  align-content: center;
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-
-.flex-container-header > div {
-  background-color:  #f1f1f1;
-  width: 425px;
-  margin: 10px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 24px;
-  justify-content: center;
-  align-content: center;
-  color: #756bb1;
+* {
+  margin: 0;
 }
-
-.flex-container-body {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-  align-content: center;
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
-
-.flex-container-body > p {
-  margin: 10px;
-  text-align: center;
-  line-height: 20px;
-  font-size: 18px;
-  justify-content: center;
-  align-content: center;
-  color: #000000;
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
 }
-
-.flex-container {
-  width: 450px;
-  margin-left: 30px;
-  display: flex;
-  justify-content: left;
-  align-content: left;
+input, button, textarea, select {
+  font: inherit;
 }
-
-#new {
-  font-weight: bold;
-  color: #3f007d;
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
 }
-
-#ikimasho {
-  text-align: right;
-  justify-content: right;
-  align-content: right;
+#root, #__next {
+  isolation: isolate;
 }
-
-a {
-  color: #3f007d;
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(65ch, 100%)
+    1fr;
 }
-
-.flex-container-footer > div {
-  background-color:  #f1f1f1;
-  width: 200px;
-  margin: 10px;
-  margin-top: 300px;
-  text-align: center;
-  line-height: 50px;
-  font-size: 18px;
-  justify-content: center;
-  align-content: center;
-  color: #756bb1;
+.wrapper > * {
+  grid-column: 2;
+}
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
 }

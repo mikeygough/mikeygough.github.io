@@ -75,6 +75,8 @@
         const main = async () => {
             const data = await csv(csvUrl, parseRow); // fetch data
 
+            console.log(data)
+
             // scaleLinear has a domain and a range. domain is the dataspace, range is the screen space.
             const x = scaleLinear()
                 .domain(extent(data, xValue)) // ANOTHER WAY -> .domain([d3.min(data, xValue), d3.max(data, xValue)]); // set the domain (minimum, maximum)
@@ -115,7 +117,7 @@
                 .attr('transform', `translate(0, ${height - margin.bottom})`)
                 .call(axisBottom(x));
             
-        };
+        };           
 
         main();
         // console.log(marks);
